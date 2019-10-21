@@ -1,4 +1,4 @@
-using MCWrapper;
+using MCWrapper.RPC.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,7 +22,7 @@ namespace MCWrapperWebAPI
 
             // Populate environment variables when using parameterless method;
             // Otherwise, use either of the IConfiguration or Explicit Options configuration methods
-            services.AddMultiChainCoreServices();
+            services.AddMultiChainCoreRPCServices();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
