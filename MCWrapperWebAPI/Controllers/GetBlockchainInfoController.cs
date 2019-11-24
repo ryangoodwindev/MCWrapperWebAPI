@@ -15,9 +15,9 @@ namespace MCWrapperWebAPI.Controllers
     [Route("api/v1/[controller]")]
     public class GetBlockchainInfoController : ControllerBase
     {
-        private readonly BlockchainRpcClient Blockchain;
+        private readonly IMultiChainRpcGeneral Blockchain;
 
-        public GetBlockchainInfoController(BlockchainRpcClient client) => Blockchain = client;
+        public GetBlockchainInfoController(IMultiChainRpcGeneral client) => Blockchain = client;
 
         [HttpGet]
         public async Task<GetBlockchainInfoResult> Get()

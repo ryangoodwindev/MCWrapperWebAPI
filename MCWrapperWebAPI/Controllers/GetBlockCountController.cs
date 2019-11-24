@@ -14,13 +14,13 @@ namespace MCWrapperWebAPI.Controllers
     [Route("api/v1/[controller]")]
     public class GetBlockCountController : ControllerBase
     {
-        private readonly RpcClientFactory _clientFactory;
+        private readonly IMultiChainRpcClientFactory _clientFactory;
 
-        public GetBlockCountController(RpcClientFactory clientFactory) => 
+        public GetBlockCountController(IMultiChainRpcClientFactory clientFactory) => 
             _clientFactory = clientFactory;
 
         [HttpGet]
         public async Task<object> Get() => 
-            await _clientFactory.BlockchainRpcClient.GetBlockCountAsync();
+            await _clientFactory.MultiChainRpcGeneralClient.GetBlockCountAsync();
     }
 }
